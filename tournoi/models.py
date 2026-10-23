@@ -4,7 +4,7 @@ from django.db import models  # noqa: F401
 class Equipe(models.Model):
     nom = models.CharField(max_length=20,unique=True)
     promo = models.CharField(max_length=10)
-    
+    equipe= models.ManyToManyField(Equipe,on_delete = models.PROTECT,related_name=equipes)
     
     class Meta:
             ordering = ["promo"]
@@ -17,6 +17,9 @@ class Match(models.Model):
     date = models.DateField()
     score_visiteur = models.PositiveSmallIntegerField(default="ICONNU")
     score_domicile = models.PositiveSmallIntegerField(default="ICONNU")
+    #la referrence de equipe
+    
+    
     
      
     
