@@ -1,5 +1,5 @@
-from tournoi.models import Equipe
-from tournoi.models import Match
+from tournoi.models import Equipe ,Match
+
 import pytest
 from django.db import models
 
@@ -19,7 +19,8 @@ def test_equipe_ayant_meme_nom(db):
             
 def test_match_non_jouer_score_inconnu(db):
     match = Match()
-    assert match.score is None
-       
+    assert match.score_domicile is None
+    assert match.score_visiteur is None
+ 
         
         
