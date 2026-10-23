@@ -1,0 +1,26 @@
+from django.shortcuts import get_object_or_404, redirect, render  # noqa: F401
+from tournoi.models import Equipe,Match
+
+
+
+def liste_equipes(request):
+    return render(request,"equipes/list_equipes.html",{"equipes":Equipe.objects.all()})
+
+
+
+
+def detail_equipe(request,equipe_id):
+    equipe = get_object_or_404(Equipe,pk = equipe_id)
+    return render(request,"equipes/detail/equipe.html",{ "equipe": equipe })
+
+
+
+
+def liste_matchs(request):
+    return render(request,"equipes/list_matchs.html",{"matchs":Match.objects.all()})
+
+
+
+def detail_match(request,match_1):
+    match = get_object_or_404(Match,pk = match_1)
+    return render(request,"equipes/list_matchs.html",{"match":match})

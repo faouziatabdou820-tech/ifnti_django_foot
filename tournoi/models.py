@@ -9,8 +9,6 @@ class Equipe(models.Model):
             ordering = ["promo"]
         
   
-  
-  
 class Match(models.Model):
     equipe_visiteuse = models.ForeignKey(Equipe, on_delete=models.CASCADE,related_name="matchs_exterieur")  
     equipe_domicile = models.ForeignKey(Equipe, on_delete=models.CASCADE,related_name="matchs_domicile")
@@ -20,12 +18,10 @@ class Match(models.Model):
     score_domicile = models.PositiveSmallIntegerField(default=None)
     #la referrence de equipe
     
-    
-    
-     
+
     
     def __str__(self):
-        return f"{self.score_domicile} - { self.score_visiteur}"
+        return f"{self.matchs_exterieur.nom} - {self.matchs_domicile} : {self.score_domicile} - { self.score_visiteur}"
 
     
     
